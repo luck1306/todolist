@@ -3,43 +3,51 @@ const new_li = document.createElement("li");
 const input_box = document.querySelector("input");
 const new_input = document.createElement("input");
 
-const li1 = document.getElementById('1'),li2 = document.getElementById('2'),li3 = document.getElementById('3'),
-li4 = document.getElementById('4'),li5 = document.getElementById('5'), ub1 = document.getElementById("updatebtn1")
+const li1 = document.getElementById('1'),li2 = document.getElementById('2'),li3 = document.getElementById('3')
+,li4 = document.getElementById('4'),li5 = document.getElementById('5'), ub1 = document.getElementById("updatebtn1")
 , ub2 = document.getElementById("updatebtn2"), ub3 = document.getElementById("updatebtn3"), ub4 = document.getElementById("updatebtn4")
 , ub5 = document.getElementById("updatebtn5"), db1 = document.getElementById("deletebtn1"), db2 = document.getElementById("deletebtn2")
 , db3 = document.getElementById("deletebtn3"), db4 = document.getElementById("deletebtn4"), db5 = document.getElementById("deletebtn5");
-let count;
+let count = 1;
 const list = [li1, li2, li3, li4, li5];
 
 function create_list_enterkey() {
     if (window.event.keyCode == 13){
-        count = 1;
-        for (i in list) {
-            if (i.value === null || i.value === undefined){
-                break;
-            }
-            count++;
-        }
         switch(count){
             case 1:
                 li1.innerHTML = input_box.value;
+                choose_number();
                 break;
             case 2:
                 li2.innerHTML = input_box.value;
+                choose_number();
                 break;
             case 3:
                 li3.innerHTML = input_box.value;
+                choose_number();
                 break;
             case 4:
                 li4.innerHTML = input_box.value;
+                choose_number();
                 break;
             case 5:
                 li5.innerHTML = input_box.value;
+                choose_number();
                 break;
             default:
                 alert('list is full!!');
         }
-        
+    }
+}
+
+function choose_number() {
+    let i = 0;
+    count = 1;
+    for (i = 1; i <= list.length - 1; i++) {
+        if (i.value === null || i.value === undefined){
+            break;
+        }
+        count = i;
     }
 }
 
